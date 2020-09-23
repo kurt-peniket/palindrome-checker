@@ -21,15 +21,21 @@ function reverseInt(num) {
   const arr = num.toString().split('');
   const reversed = [];
 
-    for (let i = arr.length -1; i >= 0; i--) {
-      reversed.push(arr[i]);
-    }
+  if (num <0) {
+      const neg = arr.shift();
 
-    return parseInt(
-    reversed
-    .join('')
-    .toString()
-  );
-}
+      for (let i = arr.length -1; i >= 0; i--) {
+        reversed.push(arr[i]);
+      }
+      return neg + reversed.join('');
 
-console.log(1230); //Returns 321
+      } else {
+        for (let i = arr.length -1; i >= 0; i--) {
+          reversed.push(arr[i]);
+        }
+        return reversed.join('');
+      }
+  }
+
+  console.log(reverseInt(-123)); //OUTPUT: -321
+  console.log(reverseInt(123)); //OUTPUT: 321
